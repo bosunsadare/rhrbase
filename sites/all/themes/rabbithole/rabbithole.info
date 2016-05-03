@@ -1,0 +1,28 @@
+
+name = Rabbithole
+description = A flexible, bootstrap based theme for Rabbithole Radio with pliable regions.
+package = Core
+core = 7.x
+
+stylesheets[all][] = css/rabbithole.css
+stylesheets[all][] = css/responsive.css
+stylesheets[all][] = Player/css/progression-player.css
+stylesheets[all][] = Player/css/skin-minimal-dark.css
+stylesheets[all][] = Player/font-awesome/css/font-awesome.min.css
+
+regions[header] = Header
+regions[player] = Player
+regions[portfolio] = Portfolio
+
+regions[map] = Map
+regions[content] = Content
+regions[sidebar] = Sidebar
+
+regions[about] = About
+regions[donate] = Donate
+
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second
+regions[footer_third] = Footer third
+regions[footer_fourth] = Footer fourth
+regions[footer_bottom] = Footer Bottom

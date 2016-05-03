@@ -1,0 +1,2 @@
+[29-Jan-2016 21:26:23 Europe/London] PHP Fatal error:  Cannot redeclare menu_tree_output() (previously declared in /home/prolific/public_html/rhr/includes/menu.inc:1026) in /home/prolific/public_html/rhr/sites/all/themes/rabbithole/template.php on line 105
+[29-Jan-2016 21:26:23 Europe/London] PHP Fatal error:  Cannot redeclare menu_tree_output() (previously declared in /home/prolific/public_html/rhr/includes/menu.inc:1026) in /home/prolific/public_html/rhr/sites/all/themes/rabbithole/template.php on line 105

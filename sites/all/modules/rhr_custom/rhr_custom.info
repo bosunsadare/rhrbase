@@ -1,0 +1,4 @@
+name = RHR Custom
+description = Several customizations to the Rabbithole Radio website.
+core = 7.x
+package = Rabbithole Custom

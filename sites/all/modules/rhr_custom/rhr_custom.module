@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ *
+ */
+function rhr_custom_form_alter(&$form, &$form_state, $form_id) {
+  switch($form_id) {
+    case 'search_block_form':
+      $form['#prefix'] = '<div class="widget"><div class="soundbyte-divider-progression"></div><h5 class="widget-title">Search</h5>';
+      $form['#suffix'] = '</div>';
+      $form['#attributes']['class'][] = 'search-form';
+      $form['search_block_form']['#attributes']['class'][] = 'search-field';
+      $form['search_block_form']['#attributes']['placeholder'] = 'Type your search here';
+      $form['actions']['submit']['#attributes']['class'][] = 'search-submit';
+    break;
+    case 'contact_site_form':
+      $form['#prefix'] = '<div class="wpcf7">';
+      $form['#suffix'] = '</div>';
+      $form['#attributes']['class'][] = 'progression-contact';
+      $form['name']['#prefix'] = '<fieldset>';
+      $form['name']['#title_display'] = 'invisible';
+      $form['name']['#attributes']['placeholder'] = 'Your name here';
+      $form['name']['#attributes']['class'][] = 'textInput';
+      $form['mail']['#attributes']['placeholder'] = 'Your email address';
+      $form['mail']['#attributes']['class'][] = 'textInput email';
+      $form['mail']['#title_display'] = 'invisible';
+      $form['subject']['#attributes']['placeholder'] = 'Subject or summary line';
+      $form['subject']['#title_display'] = 'invisible';
+      $form['subject']['#attributes']['class'][] = 'textInput';
+      $form['message']['#attributes']['placeholder'] = 'Type your message here';
+      $form['message']['#title_display'] = 'invisible';
+      $form['message']['#attributes']['class'][] = 'textInput';
+      $form['copy']['#title_display'] = 'before';
+      $form['actions']['submit']['#attributes']['class'][] = 'progression-contact-submit wpcf7-submit';
+      $form['actions']['submit']['#suffix'] = '</fieldset>';
+    break;
+    case 'comment_node_episode_form':
+      $form['#prefix'] = '<div class="wpcf7">';
+      $form['#suffix'] = '</div>';;
+      $form['author']['name']['#title_display'] = 'invisible';
+      $form['author']['name']['#attributes']['placeholder'] = 'Your name';
+      $form['author']['mail']['#title_display'] = 'invisible';;
+      $form['author']['mail']['#attributes']['placeholder'] = 'Your email';
+      $form['author']['homepage']['#title_display'] = 'invisible';
+      $form['author']['homepage']['#attributes']['placeholder'] = 'Your website';
+      $form['comment_body']['und'][0]['#title_display'] = 'invisible';
+      $form['comment_body']['und'][0]['#attributes']['placeholder'] = 'Your comment';
+      $form['author']['mail']['#description'] = t('Your email will be kept private, not visible to the public');
+      $form['actions']['submit']['#attributes']['class'][] = 'progression-contact-submit wpcf7-submit';
+    break;
+    case 'comment_node_article_form':
+      $form['#prefix'] = '<div class="wpcf7">';
+      $form['#suffix'] = '</div>';;
+      $form['author']['name']['#title_display'] = 'invisible';
+      $form['author']['name']['#attributes']['placeholder'] = 'Your name';
+      $form['author']['mail']['#title_display'] = 'invisible';;
+      $form['author']['mail']['#attributes']['placeholder'] = 'Your email';
+      $form['author']['homepage']['#title_display'] = 'invisible';
+      $form['author']['homepage']['#attributes']['placeholder'] = 'Your website';
+      $form['comment_body']['und'][0]['#title_display'] = 'invisible';
+      $form['comment_body']['und'][0]['#attributes']['placeholder'] = 'Your comment';
+      $form['author']['mail']['#description'] = t('Your email will be kept private, not visible to the public');
+      $form['actions']['submit']['#attributes']['class'][] = 'progression-contact-submit wpcf7-submit';
+    break;
+    case 'comment_node_poll_form':
+      $form['#prefix'] = '<div class="wpcf7">';
+      $form['#suffix'] = '</div>';;
+      $form['author']['name']['#title_display'] = 'invisible';
+      $form['author']['name']['#attributes']['placeholder'] = 'Your name';
+      $form['author']['mail']['#title_display'] = 'invisible';;
+      $form['author']['mail']['#attributes']['placeholder'] = 'Your email';
+      $form['author']['homepage']['#title_display'] = 'invisible';
+      $form['author']['homepage']['#attributes']['placeholder'] = 'Your website';
+      $form['comment_body']['und'][0]['#title_display'] = 'invisible';
+      $form['comment_body']['und'][0]['#attributes']['placeholder'] = 'Your comment';
+      $form['author']['mail']['#description'] = t('Your email will be kept private, not visible to the public');
+      $form['actions']['submit']['#attributes']['class'][] = 'progression-contact-submit wpcf7-submit';
+      break;
+  }
+}
+
+/**
+ * Implements hook_page_alter()
+ * @param $page
+ */
+function rhr_custom_page_alter(&$page) {
+  $node = menu_get_object();
+  $nid = (isset($node)) ? $node->nid : NULL;
+
+  if (!empty($page['content']['system_main']['nodes'][$nid]['field_show_banner']) && ($page['content']['system_main']['nodes'][$nid]['field_show_banner'])) {
+    $filename = base_path() . 'sites/default/files/' . str_replace('public://', '', $page['content']['system_main']['nodes'][$nid]['field_show_banner']['#items'][0]['uri']);
+  }
+  elseif (!empty($page['content']['system_main']['nodes'][$nid]['body']['#object']->field_image) && ($page['content']['system_main']['nodes'][$nid]['body']['#object']->field_image)) {
+    $filename = base_path() . 'sites/default/files/' . str_replace('public://', '', $page['content']['system_main']['nodes'][$nid]['body']['#object']->field_image['und'][0]['uri']);
+  }
+  elseif (!empty($page['content']['system_main']['nodes'][$nid]['field_tags']['#object']->field_image) && ($page['content']['system_main']['nodes'][$nid]['field_tags']['#object']->field_image)) {
+    $filename = base_path() . 'sites/default/files/' . str_replace('public://', '', $page['content']['system_main']['nodes'][$nid]['field_tags']['#object']->field_image['und'][0]['uri']);
+  }
+  else {
+    $filename = base_path() . 'sites/default/files/page-title.jpg';
+  }
+  drupal_add_js(array('rabbithole' => array('filename' => $filename)), 'setting');
+}
