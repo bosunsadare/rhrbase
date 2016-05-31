@@ -3392,6 +3392,16 @@ header #logo a:hover img {
 
 #sticky-header-progression.menu-resized-pro {
     background: rgba(26,23,26,0.9);
+    width: inherit;
+}
+
+#sticky-header-progression.menu-default-pro,
+.node-type-episode .menu-default-progression {
+    width: inherit;
+}
+
+.node-type-episode #progression-home-player {
+    padding-top: 8px;
 }
 
 /* -------------------- B. CONTENT CONTAINER STYLES -------------------- */
@@ -3529,7 +3539,7 @@ body.blog #infinite-nav-progression a,#title-container-progression,#post-nav-pro
 }
 
 #soundbyte-page-title .soundbyte-podcast-title-progression {
-    margin: 120px auto 60px;
+    margin: 120px auto 0px;
     width: 80%;
     max-width: 770px;
     position: relative;

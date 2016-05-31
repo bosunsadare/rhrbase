@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Rabbithole theme implementation to display each site page.
@@ -64,7 +63,7 @@
 <header id="masthead-progression" class="site-header-progression">
 	<div id="sticky-header-progression" class="menu-default-progression">
 		<div class="width-container-progression">
-				<?php if ($logo): ?>
+			<?php if ($logo): ?>
 				<h1 id="logo">
 					<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
 						<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" width="270" />

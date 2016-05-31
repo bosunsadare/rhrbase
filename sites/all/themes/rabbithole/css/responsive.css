@@ -13,8 +13,8 @@
 */
 
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
-	#sidebar .search-form .search-field, footer .search-form .search-field, .search-form input.search-field {background-image: url(images/search-magnify@2x.png); background-size:30px 30px;}
-	.lt-ie9 #sidebar .search-form .search-field, .lt-ie9 footer .search-form .search-field, .search-form input.search-field {background-image: url(images/search-magnify.png); }
+	#sidebar .search-form .search-field, footer .search-form .search-field, .search-form input.search-field {background-image: url(../images/search-magnify@2x.png); background-size:30px 30px;}
+	.lt-ie9 #sidebar .search-form .search-field, .lt-ie9 footer .search-form .search-field, .search-form input.search-field {background-image: url(../images/search-magnify.png); }
 }
 
 /*
