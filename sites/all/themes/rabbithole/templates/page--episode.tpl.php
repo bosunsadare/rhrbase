@@ -72,7 +72,11 @@
 <div id="progression-home-player">
 	<div class="responsive-wrapper responsive-audio">
 		<audio class="progression-single progression-skin progression-minimal-dark progression-audio-player" controls="controls" preload="none">
-			<source src="<?php print base_path() . 'sites/default/files/' . str_replace('public://', '', $node->field_show_audio['und'][0]['uri']); ?>" type="audio/mp3"/>
+			<?php
+			$get_file = str_replace('public://', '', $node->field_show_audio['und'][0]['uri']);
+			$mp3_file = base_path() . 'sites/default/files/' . $get_file;
+			?>
+			<source src="<?php print $mp3_file; ?>" type="audio/mp3"/>
 		</audio>
 	</div><!-- close .responsive-wrapper .responsive-audio -->
 </div>
