@@ -25,6 +25,9 @@ function rabbithole_preprocess_page(&$vars, $hook) {
   drupal_add_js(drupal_get_path('theme', 'rabbithole') . '/Player/build/mep-feature-playlist.js',
     array('type' => 'file', 'scope' => 'footer')
       );
+  drupal_add_js(drupal_get_path('theme', 'rabbithole') . '/js/script.js',
+    array('type' => 'file', 'scope' => 'footer')
+      );
   $vars['scripts'] = drupal_get_js(); // necessary in D7?
 
   $vars['primary_nav'] = rabbithole_menu_spit('main');

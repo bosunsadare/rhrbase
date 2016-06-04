@@ -75,8 +75,8 @@
 ?>
 <div id="progression-home-player">
 	<div class="responsive-wrapper responsive-audio">
-		<audio controls>
-			<source src="<?php print $mp3_file; ?>" type="audio/mpeg" />
+		<audio class="progression-single progression-skin progression-minimal-dark progression-audio-player" controls="controls" preload="none">
+			<source src="<?php print $mp3_file; ?>" type="audio/mp3" />
 			Your browser does not support the audio element.
 		</audio>
 	</div><!-- close .responsive-wrapper .responsive-audio -->
