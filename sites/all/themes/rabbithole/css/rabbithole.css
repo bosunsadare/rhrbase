@@ -3400,10 +3400,6 @@ header #logo a:hover img {
     width: inherit;
 }
 
-.node-type-episode #progression-home-player {
-    padding-top: 8px;
-}
-
 /* -------------------- B. CONTENT CONTAINER STYLES -------------------- */
 #main {
     padding: 60px 0;
@@ -5035,7 +5031,7 @@ ul.soundbyte-notes li {
     font: 400 18px / 24px Roboto;
     color: #0ce682;
     margin-right: 25px;
-    width: 35px;
+    width: 75px;
     float: left;
     position: relative;
     top: 2px;
@@ -8467,4 +8463,27 @@ label[for="edit-field-keywords-tid"] {
 #edit-submit.progression-contact-submit {
     max-width: 100%;
     width: 100%;
+}
+
+.filter-guidelines {
+    display: none;
+}
+
+.taxonomy-keywords {
+    margin-top: 10px;
+}
+
+.taxonomy-keywords .taxonomy-links {
+    padding: 8px;
+    color: #fff;
+    background-color: #30EA95;
+    margin-right: 2px;
+}
+
+a.taxonomy-links:hover {
+    border-bottom: 2px solid #000;
+}
+
+div.rater {
+    float: right;
 }

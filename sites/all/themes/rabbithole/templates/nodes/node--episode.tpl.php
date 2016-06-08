@@ -79,33 +79,49 @@
  *
  * @ingroup themeable
  */
-// dpm($node);
-// dpm($content);
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
-  <?php print $user_picture; ?>
-
-  <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
-
-  <?php if ($display_submitted): ?>
-    <div class="submitted">
-      <?php print $submitted; ?>
-    </div>
-  <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>
     <?php
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
+    hide($content['subscriptions_ui']);
+    hide($content['field_show_banner']);
+    hide($content['field_summary']);
+    hide($content['field_show_date']);
+    hide($content['field_season']);
+    hide($content['field_keywords']);
+    hide($content['field_length_of_audio']);
+    hide($content['field_show_audio']);
+    hide($content['field_media']);
+    hide($content['field_rate']);
+    hide($content['field_schedule']);
+    hide($content['field_guests_details']);
     print render($content);
     ?>
   </div>
+
+  <cite><?php print render($content['links']); ?></cite>
+
+  <div class="rater"><?php print render($content['field_rate']); ?></div>
+
+  <?php if (!empty($content['field_media'])): ?>
+    <hr class="ls-sc-divider dotted grey">
+    <?php print render($content['field_media']); ?>
+  <?php endif; ?>
+
+  <?php if (!empty($content['field_keywords'])): ?>
+    <div class="taxonomy-keywords">
+      <h6>Related Topics</h6>
+      <?php for ($x = 0; isset($content['field_keywords'][$x]); $x++) { ?>
+        <a href="/<?php print $content['field_keywords'][$x]['#href']; ?>" class="taxonomy-links">
+          <?php print $content['field_keywords'][$x]['#title']; ?>
+        </a>
+      <?php } ?>
+    </div>
+  <?php endif; ?>
 
   <div class="soundbyte-podcast-share">
     <div class="grid3column-progression">
@@ -120,7 +136,25 @@
     <div class="clearfix-progression"></div>
   </div>
 
-  <?php print render($content['links']); ?>
+  <?php if (!empty($content['field_schedule'][0])): ?>
+  <div class="show-notes-soundbyte">
+    <h5>Show Notes</h5>
+    <ul class="soundbyte-notes">
+    <?php
+      for ($i = 0; isset($content['field_schedule'][$i]); $i++) {
+        $fcid = $content['field_schedule']['#items'][$i]['value'];
+        $time = $content['field_schedule'][$i]['entity']['field_collection_item'][$fcid]['field_time']['#items'][0]['value'];
+        $description = $content['field_schedule'][$i]['entity']['field_collection_item'][$fcid]['field_description']['#items'][0]['value'];
+        $link = $content['field_schedule'][$i]['entity']['field_collection_item'][$fcid]['field_link']['#items'][0]['value'];
+    ?>
+    <li class="soundbyte-timeline">
+      <div class="soundbyte-time-pro"><?php print $time; ?></div>
+      <a href="<?php print $link; ?>" target="_blank"><?php print $description; ?></a>
+    </li>
+    <?php } ?>
+    </ul>
+  </div>
+  <?php endif; ?>
 
   <?php print render($content['comments']); ?>
 
