@@ -8487,3 +8487,8 @@ a.taxonomy-links:hover {
 div.rater {
     float: right;
 }
+
+.subscriber {
+    padding: 10px 10px 20px;
+    border: 1px solid #ddd;
+}

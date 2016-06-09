@@ -108,6 +108,16 @@
     <?php if ($page['sidebar']) : ?>
     <div id="soundbyte-sidebar">
       <?php print render($page['sidebar']); ?>
+
+			<?php
+				$id = $node->nid;
+				if ($page['content']['system_main']['nodes'][$id]['subscriptions_ui']) {
+			?>
+			<div class="subscriber">
+				<?php print render($page['content']['system_main']['nodes'][$id]['subscriptions_ui']); ?>
+			</div>
+			<?php } ?>
+
     </div>
     <?php endif; ?>
     <div class="clearfix-progression"></div>
