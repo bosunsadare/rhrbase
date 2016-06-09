@@ -111,7 +111,7 @@
 
 			<?php
 				$id = $node->nid;
-				if ($page['content']['system_main']['nodes'][$id]['subscriptions_ui']) {
+				if (!empty($page['content']['system_main']['nodes'][$id]['subscriptions_ui'])) {
 			?>
 			<div class="subscriber">
 				<?php print render($page['content']['system_main']['nodes'][$id]['subscriptions_ui']); ?>

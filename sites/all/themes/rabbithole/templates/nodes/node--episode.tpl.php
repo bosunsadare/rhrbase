@@ -156,6 +156,8 @@
   </div>
   <?php endif; ?>
 
+  <?php echo views_embed_view('home_slider', 'page_3'); ?>
+
   <?php print render($content['comments']); ?>
 
 </div>
