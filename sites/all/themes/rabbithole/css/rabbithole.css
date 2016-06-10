@@ -8491,4 +8491,9 @@ div.rater {
 .subscriber {
     padding: 10px 10px 20px;
     border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.subscriber .description {
+    display: none;
 }

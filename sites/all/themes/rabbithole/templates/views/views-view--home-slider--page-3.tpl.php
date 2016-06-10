@@ -1,7 +1,7 @@
 
 <?php if ($rows): ?>
   <div id="previous-episodes-soundbyte">
-    <h5>Latest Episodes</h5>
+    <h5>Previous Episodes</h5>
     <?php print $rows; ?>
     <div class="clearfix-progression"></div>
   </div>

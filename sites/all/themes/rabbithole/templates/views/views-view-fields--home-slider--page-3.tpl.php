@@ -1,4 +1,7 @@
-
+<?php
+$epid = str_replace('node/', '', $_GET['q']);
+if ($epid > $fields['nid']->content) {
+?>
 <div class="episode-previous-progression">
   <div class="grid2column-progression">
     <a href="<?php print base_path() . 'node/' . $fields['nid']->content; ?>">
@@ -22,3 +25,4 @@
   </div>
   <div class="clearfix-progression"></div>
 </div>
+<?php } ?>
