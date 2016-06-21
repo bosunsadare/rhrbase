@@ -3,7 +3,6 @@
  * @file
  * Rabbithole theme implementation to display each site page.
  */
-dpm($node);
 ?>
 
 <header id="masthead-progression" class="site-header-progression">
@@ -43,7 +42,7 @@ dpm($node);
 		<?php endif; ?>
 		<?php if ($title): ?>
 			<div class="grid2column-progression">
-				<h1 id="page-title"><?php print $title; ?></h1>
+				<h1 id="page-title">NEWS</h1>
 			</div>
 		<?php endif; ?>
 		<?php if (!empty($node->field_summary) && ($node->field_summary)) { ?>
@@ -79,12 +78,23 @@ dpm($node);
         <?php print render($action_links); ?>
       </ul>
       <?php endif; ?>
-      <?php print render($page['content']); ?>
+			<article class="post">
+				<?php print render($page['content']); ?>
+			</article>
     </div>
 
     <?php if ($page['sidebar']) : ?>
     <div id="soundbyte-sidebar">
       <?php print render($page['sidebar']); ?>
+
+			<?php
+			$id = $node->nid;
+			if (!empty($page['content']['system_main']['nodes'][$id]['subscriptions_ui'])) {
+				?>
+				<div class="subscriber">
+					<?php print render($page['content']['system_main']['nodes'][$id]['subscriptions_ui']); ?>
+				</div>
+			<?php } ?>
     </div>
     <?php endif; ?>
     <div class="clearfix-progression"></div>

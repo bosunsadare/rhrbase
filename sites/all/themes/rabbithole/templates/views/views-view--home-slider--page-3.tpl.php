@@ -7,4 +7,8 @@
   </div>
   <div class="clearfix-progression"></div>
 
+<?php elseif ($empty): ?>
+  <div class="view-empty">
+    <?php print $empty; ?>
+  </div>
 <?php endif; ?>
