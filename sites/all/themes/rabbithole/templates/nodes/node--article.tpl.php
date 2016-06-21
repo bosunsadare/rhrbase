@@ -98,7 +98,7 @@
       <div class="soundbyte-divider-progression"></div>
       <div class="ls-sc-grid_2 alpha">
         <a href="/user/<?php print $node->uid; ?>">
-          <img src="<?php print $node->picture->uri; ?>" alt="<?php print $node->name; ?>" style="width:100px;height:100px;">
+          <img src="<?php print base_path() . 'sites/default/files/pictures/' . $node->picture->filename; ?>" alt="<?php print $node->name; ?>" style="width:100px;height:100px;">
         </a>
       </div>
       <div class="ls-sc-grid_10 omega">
