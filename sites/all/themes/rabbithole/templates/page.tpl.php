@@ -103,6 +103,17 @@
 
 <div class="clearfix-progression"></div>
 
+<?php if ($page['timeline']) : ?>
+	<div id="timeline-section">
+		<div class="width-container-progression">
+			<?php print render($page['timeline']); ?>
+			<div class="clearfix-progression"></div>
+		</div>
+	</div>
+<?php endif; ?>
+
+<div class="clearfix-progression"></div>
+
 <?php if ($page['donate']) : ?>
 <div class="highlight-section-progression">
 	<div class="width-container-progression">

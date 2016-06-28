@@ -3725,6 +3725,11 @@ body #main .woocommerce-message a.button {
     padding-top: 76px;
 }
 
+#timeline-section {
+    padding-top: 10px;
+    background-color: #fff;
+}
+
 #main.content-area {
     background-color: #fff;
     padding-top: 76px;
@@ -3736,7 +3741,7 @@ h2.title-heading-progression {
     margin-bottom: 41px;
 }
 
-ul.about-list-progression {
+ul.about-list-progression, ul.guest-list-progression {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -3747,9 +3752,19 @@ li.about-content-progression {
     display: inline-block;
 }
 
+li.guest-content-progression {
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
 .about-content-progression .soundbyte-divider-progression,.donate-progression .soundbyte-divider-progression {
     background-color: rgba(26,23,26,0.08);
     margin-bottom: 0;
+}
+
+.guest-content-progression .soundbyte-divider-progression {
+    background-color: rgba(26,23,26,0.08);
+    margin-bottom: 10px;
 }
 
 .about-content-progression h2.about-title-progression {
@@ -3761,6 +3776,14 @@ li.about-content-progression {
     margin-bottom: 8px;
 }
 
+.guest-content-progression h4.guest-title-progression {
+    font: 400 24px Poppins;
+    color: #0ce682;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
 .about-content-progression .author-description-progression {
     font: 700 16px Roboto;
     color: #1a171a;
@@ -3769,13 +3792,26 @@ li.about-content-progression {
     margin-bottom: 32px;
 }
 
+.guest-content-progression .author-description-progression {
+    font: 700 16px Roboto;
+    color: #1a171a;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
 .about-content-progression p {
     text-align: right;
     font: 400 18px / 30px Roboto;
     color: rgba(26,23,26,0.57);
 }
 
-.about-content-progression a i {
+.guest-content-progression p {
+    font: 400 18px / 30px Roboto;
+    color: rgba(26,23,26,0.57);
+    margin-bottom: 8px;
+}
+
+.about-content-progression a i, .guest-content-progression a i {
     text-align: left;
     float: right;
     font-size: 24px;
@@ -3784,7 +3820,7 @@ li.about-content-progression {
     color: #1a171a;
 }
 
-.about-content-progression a i:hover {
+.about-content-progression a i:hover, .guest-content-progression a i:hover {
     color: #0ce682;
 }
 

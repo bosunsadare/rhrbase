@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a node.
@@ -106,6 +105,39 @@
   <cite><?php print render($content['links']); ?></cite>
 
   <div class="rater"><?php print render($content['field_rate']); ?></div>
+
+  <div class="clearfix-progression"></div>
+
+  <?php if (!empty($content['field_guests_details']['#items'])): ?>
+  <h4 class="title-heading-progression">Guests on the Show</h4>
+  <ul class="guest-list-progression">
+  <?php
+    for ($p = 0; isset($content['field_guests_details']['#items'][$p]); $p++) {
+      $item_id = $content['field_guests_details']['#items'][$p]['value'];
+      $pre = $content['field_guests_details'][$p]['entity']['field_collection_item'][$item_id];
+      $guest_name = $pre['field_guest_name']['#items'][0]['value'];
+      $guest_bio = $pre['field_guest_bio']['#items'][0]['value'];
+      $guest_link_title = $pre['field_guest_link']['#items'][0]['title'];
+      $guest_link_url = $pre['field_guest_link']['#items'][0]['url'];
+      $guest_photo = base_path() . 'sites/default/files/guests/' . $pre['field_guest_photo']['#items'][0]['filename'];
+  ?>
+    <li class="guest-content-progression">
+      <div class="grid2column-progression">
+        <img class="about-images-progression" src="<?php print $guest_photo; ?>" alt="about-1" />
+      </div>
+      <div class="grid2column-progression lastcolumn-progression">
+        <div class="soundbyte-divider-progression"></div>
+        <h4><?php print $guest_name; ?></h4>
+        <span class="author-description-progression"><a href="<?php print $guest_link_url; ?>"><?php print $guest_link_title; ?></a></span>
+        <div class="clearfix-progression"></div>
+        <p><?php print $guest_bio; ?></p>
+        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a><a href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+      </div>
+    </li>
+  <?php } ?>
+  </ul>
+  <div class="clearfix-progression"></div>
+  <?php endif; ?>
 
   <?php if (!empty($content['field_media'])): ?>
     <hr class="ls-sc-divider dotted grey">

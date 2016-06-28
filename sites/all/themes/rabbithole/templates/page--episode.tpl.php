@@ -3,6 +3,7 @@
  * @file
  * Rabbithole theme implementation to display each site page.
  */
+
 ?>
 
 <header id="masthead-progression" class="site-header-progression">

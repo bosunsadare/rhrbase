@@ -13,6 +13,7 @@ stylesheets[all][] = Player/font-awesome/css/font-awesome.min.css
 regions[header] = Header
 regions[player] = Player
 regions[portfolio] = Portfolio
+regions[timeline] = Timeline
 
 regions[map] = Map
 regions[content] = Content
