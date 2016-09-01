@@ -50,6 +50,7 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <meta name="viewport" content="width=device-width">
+  <meta name="google-site-verification" content="FxOModPpKCUrcmowqaJ_0blC6-jSs67EWjw36XPIs0I">
   <?php print $styles; ?>
   <link href='//fonts.googleapis.com/css?family=Poppins:400,600,700%7cRoboto:400,300,700,900' rel='stylesheet' type='text/css'> 
   <?php print $scripts; ?>

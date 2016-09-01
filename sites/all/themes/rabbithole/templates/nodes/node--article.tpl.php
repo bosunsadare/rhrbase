@@ -82,6 +82,14 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <div class="content"<?php print $content_attributes; ?>>
+    <?php if ($teaser): ?>
+      <h5><?php print '<a href="' . $node_url . '">' . $title . '</a>'; ?></h5>
+      <?php if ($comment_count) {
+        print '<a href="' . $node_url . '#comments">' . $comment_count . 'comment(s)</a>';
+      }
+      ?>
+    </div>
+    <?php else: ?>
     <div class="post-container-progression">
       <?php
       // We hide the comments and links now so that we can render them later.
@@ -157,5 +165,5 @@
   </div>
 
   <?php print render($content['comments']); ?>
-
+  <?php endif; ?>
 </div>

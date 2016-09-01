@@ -45,7 +45,8 @@
 			<div class="soundbyte-divider-progression"></div>
 			<div class="clearfix-progression"></div>
 			<div class="soundbyte-podcast-progression-meta">
-				<div class="alignleft">Season 3</div><div class="alignright"><i class="fa fa-clock-o"></i>27 MINS</div>
+				<?php $audio_length = floor($node->field_length_of_audio['und'][0]['value'] / 60); ?>
+				<div class="alignleft">Season 3</div><div class="alignright"><i class="fa fa-clock-o"></i><?php print $audio_length; ?> MINS</div>
 				<div class="clearfix-progression"></div>
 			</div>
 			<?php if ($title): ?>
@@ -64,6 +65,7 @@
 	</div>
 </div>
 
+<?php if (isset($node->field_show_audio['und'][0]['uri'])) { ?>
 <a href="<?php print base_path() . 'sites/default/files/' . str_replace('public://', '', $node->field_show_audio['und'][0]['uri']); ?>" download="<?php print 'RHRadio_audio_' . date('d-m-Y') . '_' . time(); ?>">
 	<div id="soundbyte-download-podcast">
 		<div class="soundbyte-download-text">MP3 <i class="fa fa-cloud-download"></i></div>
@@ -82,6 +84,7 @@
 		</audio>
 	</div><!-- close .responsive-wrapper .responsive-audio -->
 </div>
+<?php } ?>
 
 <div class="clearfix-progression"></div>
 

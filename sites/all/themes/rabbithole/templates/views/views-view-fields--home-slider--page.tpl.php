@@ -1,3 +1,4 @@
+<?php global $base_url; ?>
 <?php print $fields['field_show_banner']->content; ?>
 <div class="caption-progression">
   <div class="width-container-progression">
@@ -10,9 +11,9 @@
 
       <div class="progression-button-icons">
         <a class="ls-sc-button" href="<?php print base_path() . 'node/' . $fields['nid']->content . '#soundbyte-sidebar'; ?>">SUBSCRIBE</a>
-        <a href="http://www.google.com/bookmarks/mark?op=edit&bkmk=<?php print base_path() . 'node/' . $fields['nid']->content; ?>" target="_blank"><i class="fa fa-google"></i></a>
-        <a href="http://www.facebook.com/sharer/sharer.php?u=<?php print base_path() . 'node/' . $fields['nid']->content; ?>" target="_blank"><i class="fa fa-facebook"></i></a>
-        <a href="http://twitter.com/share?text=<?php print urlencode($fields['title']->content); ?>&url=<?php print base_path() . 'node/' . $fields['nid']->content; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="https://plus.google.com/share?url=<?php print $base_url . '/node/' . $fields['nid']->content; ?>" target="_blank"><i class="fa fa-google"></i></a>
+        <a href="http://www.facebook.com/sharer/sharer.php?u=<?php print $base_url . '/node/' . $fields['nid']->content; ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="http://twitter.com/share?text=<?php print urlencode($fields['title']->content); ?>&url=<?php print $base_url . '/node/' . $fields['nid']->content; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
       </div>
     </div>
 
